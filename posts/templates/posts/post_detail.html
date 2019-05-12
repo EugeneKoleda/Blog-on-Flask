@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    {% if current_user.has_role('admin') %}
+        <div class="edit">
+            <button type="submit" class="btn btn-outline-dark btn-sm">
+                <a href="{{ url_for('posts.edit_post', slug=post.slug) }}" class="text-muted">Edit</a>
+            </button>
+        </div>
+    {% endif %}
+    <div class="tags">
+        {% for tag in tags %}
+        <a href="{{ url_for('posts.tag_detail', slug=tag.slug) }}" class="badge badge-pill badge-info">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+    {{ post.body }}
+
+{% endblock %}
