@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>
+
+   <title>
         {% block title %}
         {% endblock %} |by EVSX
     </title>
+    <!-- META TAGS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-{#    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">#}
+	<!-- STYLES -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flexslider.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animsition.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="../static/css/style.css">
+
+
+
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-back">
-      <a class="navbar-brand" href="{{ url_for('index') }}">
-          <img src="{{ url_for('static', filename='LOG.png') }}"  width="120" height="30" alt="logo">
-{#          <span class="navbar-brand mb-0 h1">EVS<span class="text-info">X</span></span>#}
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<body class="animsition">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('posts.index') }}">Blog</a>
-          </li>
-{#          <li class="nav-item active">#}
-{#            <a class="nav-link" href="/admin">Admin</a>#}
-{#          </li>#}
-            <li class="nav-item active">
-                <form class="form-inline  my-2 my-lg-0" method="GET">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.args.get('q', '') }}">
-                  <button class="btn btn-light my-2 my-sm-0 " type="submit" formaction={{url_for('posts.index')}}>Search</button>
-                </form>
-            </li>
-        </ul>
+    <header class="main-header">
 
 
+		<div class="container">
+			<div class="logo">
+				<a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='images/Log2.png') }}" class="logo" alt="logo">
+                </a>
+			</div>
 
-          <ul class="navbar-nav navbar-right">
-            <li class="nav-item active">
-{#                {% if login_fresh() %}#}
-{#                    <a class="nav-link" href="/logout">Log Out</a>#}
-{#                {% endif %}#}
-{#                <a class="nav-link" href="/login">Log In</a>#}
-                <ul class="navbar-nav">
-                    <li>
-                        {% if  current_user.has_role('admin')  %}
-                            <a class="nav-link" href="/admin" class="text-muted">Admin</a>
-                        {% endif %}
-                    </li>
-                    <li>
-                        {% if not current_user.is_authenticated %}
-                            <a class="nav-link" href="/login">Log In</a>
-                        {% endif %}
-                        {% if  current_user.is_authenticated %}
-                            <a class="nav-link" href="/logout">Log Out</a>
-                        {% endif %}
-                    </li>
-                </ul>
+			<div class="menu">
+				<!-- desktop navbar -->
+				<nav class="desktop-nav">
+					<ul class="first-level">
+						<li><a href="{{ url_for('index') }}" class="animsition-link">Home</a></li>
+						<li><a href="about.html" class="animsition-link">about us</a></li>
+						<li><a href="" class="animsition-link">services</a></li>
+						<li><a href="">portfolio</a></li>
+						<li><a class="nav-link" href="{{ url_for('posts.index') }}">blog</a></li>
+						<li><a href="contact.html" class="animsition-link">contact us</a></li>
+                        <li><a href="">search</a>
+							<ul class="second-level">
+                                <li>
+                                    <form class="form-inline my-2 my-lg-0 input-radius-0" method="GET">
+                                        <input class=" mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.args.get('q', '') }}">
+                                     </form>
+                                </li>
+							</ul>
+						</li>
+                        <li>
+                            {% block menu %}
+                            {% endblock %}
+                        </li>
+					</ul>
+				</nav>
+				<!-- mobile navbar -->
+				<nav class="mobile-nav"></nav>
+				<div class="menu-icon">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-            </li>
-          </ul>
-
-      </div>
-    </nav>
-
+	<div class="hero-section">
+		{% block hero %}
+		{% endblock %}
+	</div>
 
     <div class="container">
         <div class="rows">
@@ -74,14 +82,125 @@
         </div>
     </div>
 
+<!--	newsletter-->
+	<section class="green-section wow fadeInUp" style="padding:50px 0">
+		<div class="container">
+			<div class="col-md-6 col-sm-12">
+				<div class="row">
+					<span class="white-text montserrat-text uppercase" style="font-size:30px;display:block;">
+						you think we're cool? let's work together
+					</span>
+					<a href="#" class="btn white" style="margin-top:30px"><span>get in touch</span></a>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-sm-12">
+				<div class="row">
+					<div class="white-section" style="padding:20px">
+						<span class="montserrat-text uppercase" style="font-size:24px">stay informed with our newsletter</span>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua.
+						</p>
+						<form action="#" method="post">
+							<div class="input_1">
+								<input type="text" name="email">
+								<span>your email</span>
+							</div>
+							<button type="submit" class="btn green" style="margin-top:20px"><span>send</span></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+    <footer class="main-footer wow fadeInUp">
+		<div class="container">
+			<div class="col-md-8 col-sm-12">
+				<div class="row">
+					<nav class="footer-nav">
+                        <ul class="first-level">
+                            <li><a href="index.html" class="animsition-link">Home</a></li>
+                            <li><a href="about.html" class="animsition-link">about us</a></li>
+                            <li><a href="" class="animsition-link">services</a></li>
+                            <li><a href="">portfolio</a></li>
+                            <li><a class="nav-link" href="{{ url_for('posts.index') }}">blog</a></li>
+                            <li><a href="contact.html" class="animsition-link">contact us</a></li>
+                        </ul>
+					</nav>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-12" style="text-align:right">
+				<div class="row">
+					<div class="uppercase gray-text">
+                        Created by <a href="https://vk.com/evsex">EVSX</a>
+                        &copy;2019. all rights reserved.
+					</div>
+					<ul class="social-icons" style="margin-top:30px;float:right">
+						<li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-youtube"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flexslider.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/smoothScroll.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.animsition.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+
+			// initialise flexslider
+			$('.site-hero').flexslider({
+				animation: "fade",
+				directionNav: false,
+				controlNav: false,
+				keyboardNav: true,
+				slideToStart: 0,
+				animationLoop: true,
+				pauseOnHover: false,
+				slideshowSpeed: 4000,
+			});
+
+
+			// initialize isotope
+			var $container = $('.portfolio_container');
+			$container.isotope({
+				filter: '*',
+			});
+
+			$('.portfolio_filter a').click(function(){
+				$('.portfolio_filter .active').removeClass('active');
+				$(this).addClass('active');
+
+				var selector = $(this).attr('data-filter');
+				$container.isotope({
+					filter: selector,
+					animationOptions: {
+						duration: 500,
+						animationEngine : "jquery"
+					}
+				});
+				return false;
+			});
+		});
+	</script>
 </body>
-
-
-<footer class="mastfoot">
-
-         <div class="footer-copyright text-center py-3">© 2019 Copyright:
-            <a href="https://vk.com/evsex"> EVSX.com</a>
-         </div>
-
-</footer>
 </html>
