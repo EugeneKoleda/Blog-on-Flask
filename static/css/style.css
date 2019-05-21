@@ -1253,3 +1253,22 @@ input-radius-0{
 	height: 40px;
 	width: 40px;
 }
+
+
+/*Login*/
+.login{
+	float: right;
+	display: block;
+	margin-right: 40px;
+
+}
+.clearfix::after{
+    content: '';
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+#user{
+	margin-right: 5px;
+}

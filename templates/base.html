@@ -24,10 +24,14 @@
 </head>
 <body class="animsition">
 
+
+
     <header class="main-header">
+		<div class="head-blog">
+			{% block login %}
+			{% endblock %}
 
-
-		<div class="container">
+			<div class="container">
 			<div class="logo">
 				<a href="{{ url_for('index') }}">
                     <img src="{{ url_for('static', filename='images/Log2.png') }}" class="logo" alt="logo">
@@ -44,29 +48,23 @@
 						<li><a href="">portfolio</a></li>
 						<li><a class="nav-link" href="{{ url_for('posts.index') }}">blog</a></li>
 						<li><a href="contact.html" class="animsition-link">contact us</a></li>
-                        <li><a href="">search</a>
-							<ul class="second-level">
-                                <li>
-                                    <form class="form-inline my-2 my-lg-0 input-radius-0" method="GET">
-                                        <input class=" mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.args.get('q', '') }}">
-                                     </form>
-                                </li>
-							</ul>
-						</li>
                         <li>
                             {% block menu %}
                             {% endblock %}
                         </li>
 					</ul>
+
 				</nav>
 				<!-- mobile navbar -->
 				<nav class="mobile-nav"></nav>
-				<div class="menu-icon">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
+					<div class="menu-icon">
+						<div class="line"></div>
+						<div class="line"></div>
+						<div class="line"></div>
+					</div>
 				</div>
 			</div>
+
 		</div>
 	</header>
 
@@ -74,6 +72,8 @@
 		{% block hero %}
 		{% endblock %}
 	</div>
+
+
 
     <div class="container">
         <div class="rows">
@@ -201,6 +201,14 @@
 				return false;
 			});
 		});
+	</script>
+
+	<script type="text/javascript">
+		  function openLinks()
+		  {
+			window.open('/logout');
+			window.location.href = '/blog';
+		  }
 	</script>
 </body>
 </html>

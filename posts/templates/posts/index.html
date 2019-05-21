@@ -5,6 +5,32 @@
 {% endblock %}
 
 
+{% block login %}
+<div class="menu">
+<!-- desktop navbar -->
+	<nav class="desktop-nav">
+		<ul class="first-level login clearfix" >
+			<li id="user">
+				{% if  current_user.has_role('admin')  %}
+					<a class="animsition-link" href="/admin">Admin </a>
+				{% endif %}
+			</li>
+
+			<li>
+				{% if not current_user.is_authenticated %}
+					<a class="animsition-link  text-muted" href="/login">Log In
+					</a>
+				{% endif %}
+				{% if  current_user.is_authenticated %}
+					<a class="animsition-link  text-muted" href="/logout">| Log Out</a>
+				{% endif %}
+			</li>
+		</ul>
+	</nav>
+</div>
+{% endblock %}
+
+
 {% block hero %}
 	<div class="site-hero_2">
 		<div class="page-title">
@@ -12,6 +38,7 @@
 			<div class="small-title montserrat-text uppercase">home / blog</div>
 		</div>
 	</div>
+
 {% endblock %}
 
 
