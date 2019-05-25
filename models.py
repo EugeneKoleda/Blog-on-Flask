@@ -65,10 +65,18 @@ roles_users = db.Table('roles_users',
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
+
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(255))
     active = db.Column(db.Boolean())
     roles = db.relationship('Role', secondary=roles_users, backref=db.backref('user', lazy='dynamic'))
+
+    def __init__(self, *args, **kwargs):
+        super(User, self).__init__(*args, **kwargs)
+        self.generate_slug()
+
+    def generate_slug(self):
+        pass
 
 
 class Role(db.Model, RoleMixin):

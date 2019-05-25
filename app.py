@@ -56,11 +56,16 @@ class TagAdminView(AdminMixin, BaseModelView):
     form_columns = ['name', 'posts']
 
 
+class UserAdminView(AdminMixin, BaseModelView):
+    form_columns = [ 'password', 'active', 'roles']
+    excluded_list_columns = ('password', )
+
+
 
 admin = Admin(app, 'FlaskApp', url='/', index_view=AdminHomeView(name='Home'))
 admin.add_view(PostAdminView(Post, db.session))
 admin.add_view(TagAdminView(Tag, db.session))
-
+admin.add_view(UserAdminView(User, db.session))
 
 ###  FLASK SECURITY###
 
