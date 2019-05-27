@@ -1272,3 +1272,20 @@ input-radius-0{
 #user{
 	margin-right: 5px;
 }
+
+
+
+/* ERROR 404 NOT FOUND*/
+.site-error{
+	height: 700px;
+    width: 100%;
+    background: #fff url(../images/error.png) no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.error-title{
+	margin-top: 240px;
+	margin-left: 950px;
+}
