@@ -69,7 +69,9 @@ def index():
 
     pages = posts.paginate(page=page, per_page=5)
 
-    return render_template('posts/index.html', pages=pages)
+    tags = Tag.query.all()
+
+    return render_template('posts/index.html', pages=pages, tags=tags )
 
 
 #http://localhost/blog/first-post
