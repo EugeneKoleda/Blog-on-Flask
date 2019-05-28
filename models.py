@@ -66,7 +66,7 @@ roles_users = db.Table('roles_users',
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(255))
-    login = db.Column(db.String(255))
+    login = db.Column(db.String(255), unique=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(255))
     active = db.Column(db.Boolean())
@@ -84,6 +84,15 @@ class Role(db.Model, RoleMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True)
     description = db.Column(db.String(255))
+
+
+class Messages(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    title = db.Column(db.String(255))
+    email = db.Column(db.String(100))
+    text = db.Column(db.String(10000))
+
 
 
 

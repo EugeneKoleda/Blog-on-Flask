@@ -1,4 +1,6 @@
 from flask import Flask, request, redirect, url_for
+from flask_mail import Mail
+
 from config import Configuration
 
 from flask_sqlalchemy import SQLAlchemy
@@ -20,6 +22,8 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
+
+mail = Mail(app)
 
 
 ###   ADMIN  ###
@@ -57,15 +61,21 @@ class TagAdminView(AdminMixin, BaseModelView):
 
 
 class UserAdminView(AdminMixin, BaseModelView):
-    form_columns = ['full_name', 'login', 'password', 'email', 'active', 'roles']
-    excluded_list_columns = ('password', )
+    form_columns = ['id', 'full_name', 'login', 'password', 'email', 'active', 'roles']
+    column_exclude_list = ('password', )
 
+
+class MessageAdminView(AdminMixin, BaseModelView):
+    form_columns = ['name', 'email', 'title', 'text']
 
 
 admin = Admin(app, 'FlaskApp', url='/blog', index_view=AdminHomeView(name='Home'))
 admin.add_view(PostAdminView(Post, db.session))
 admin.add_view(TagAdminView(Tag, db.session))
 admin.add_view(UserAdminView(User, db.session))
+admin.add_view(MessageAdminView(Messages, db.session))
+
+
 
 ###  FLASK SECURITY###
 

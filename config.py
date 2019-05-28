@@ -8,3 +8,15 @@ class Configuration():
     ###  FLASK SECURITY  ###
     SECURITY_PASSWORD_SALT = 'salt'
     SECURITY_PASSWORD_HASH = 'bcrypt'
+
+
+    ### FLASK FEEDBACk ###
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 465
+    MAIL_USERNAME = 'jecich209'
+    MAIL_PASSWORD = 'jeka2000'
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = True
+    ADMINS = ['jecich209@gmail.com']
+
+

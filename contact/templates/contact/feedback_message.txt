@@ -1,0 +1,11 @@
+Dear {{name}},
+
+Thank you for you your attention to our company!
+
+Our specialists will help you in the next 24 hours.
+
+You can again visit our website and describe something new for yourself.
+
+Regards,
+
+EVSX team.

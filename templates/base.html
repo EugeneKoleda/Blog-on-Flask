@@ -45,8 +45,8 @@
 						<li><a href="about.html" class="animsition-link">about us</a></li>
 						<li><a href="" class="animsition-link">services</a></li>
 						<li><a href="">portfolio</a></li>
-						<li><a class="nav-link" href="{{ url_for('posts.index') }}">blog</a></li>
-						<li><a href="contact.html" class="animsition-link">contact us</a></li>
+						<li><a class="animsition-link" href="{{ url_for('posts.index') }}">blog</a></li>
+						<li><a href="{{ url_for('contact.index') }}" class="animsition-link">contact us</a></li>
                         <li>
                             {% block menu %}
                             {% endblock %}
@@ -127,7 +127,7 @@
                             <li><a href="" class="animsition-link">services</a></li>
                             <li><a href="">portfolio</a></li>
                             <li><a class="nav-link" href="{{ url_for('posts.index') }}">blog</a></li>
-                            <li><a href="contact.html" class="animsition-link">contact us</a></li>
+                            <li><a href="{{ url_for('contact.index') }}" class="animsition-link">contact us</a></li>
                         </ul>
 					</nav>
 				</div>
@@ -208,6 +208,11 @@
 			window.open('/logout');
 			window.location.href = '/blog';
 		  }
+
 	</script>
+
+    {% block script %}
+    {% endblock %}
+
 </body>
 </html>

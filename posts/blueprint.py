@@ -55,6 +55,7 @@ def index():
 
     q = request.args.get('q')
 
+
     page = request.args.get('page')
 
     if page and page.isdigit():
@@ -71,7 +72,7 @@ def index():
 
     tags = Tag.query.all()
 
-    return render_template('posts/index.html', pages=pages, tags=tags )
+    return render_template('posts/index.html', pages=pages, tags=tags)
 
 
 #http://localhost/blog/first-post
