@@ -40,10 +40,14 @@ def index():
               recipients=[email])
     feedback_message.body = render_template("contact/feedback_message.txt",
             name=name)
-    mail.send(feedback_message)
 
-    # customer_message = Message(text, sender=email,
-    #           recipients=[Configuration.ADMINS[0]])
-    # mail.send(customer_message)
+    customer_message = Message(title, sender=Configuration.ADMINS[0],
+                               recipients=[Configuration.ADMINS[0]])
+    customer_message.body = render_template("contact/customer_message.txt",
+                                            name=name, title=title, email=email, text=text)
+
+    with app.app_context():
+        mail.send(feedback_message)
+        mail.send(customer_message)
 
     return redirect(url_for('index'))
