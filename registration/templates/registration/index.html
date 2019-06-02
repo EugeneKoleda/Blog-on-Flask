@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Sign In
+{% endblock %}
+
+{% block content %}
+    	<section>
+        <h1 class="pb-5">Sign In</h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row">
+						<form action="#" method="POST">
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:30px">
+                                        <input type="text" id="full_name" name="full_name" value="{{ request.args.get('full_name', '') }}">
+                                        <span>your full name</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:30px">
+                                        <input type="text" id="email" name="email" value="{{ request.args.get('email', '') }}">
+                                        <span>your email</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:30px">
+                                        <input type="text" id="login" name="login" value="{{ request.args.get('login', '') }}">
+                                        <span>login</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:30px">
+                                        <input type="password" id="password" name="password" value="{{ request.args.get('password', '') }}" >
+                                        <span>password</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:30px">
+                                        <input type="password" id="confirm_password" name="confirm_password" value="{{ request.args.get('confirm_password', '') }}" >
+                                        <span>confirm password</span>
+                                    </div>
+                                </div>
+                            </div>
+
+{#                            <div class="g-recaptcha" data-sitekey="your_site_key"></div>#}
+{#                            <br/>#}
+{#                            <input type="submit" value="Submit">#}
+
+                            <div class="col-md-12">
+                                <label for="name email title message"><button type="submit" class="btn green">Send</button></label>
+							</div>
+						</form>
+                        <div>
+                            {% if error_message %}
+                                <p>
+                                    <script>
+                                        alert('This login or email already exist!');
+                                    </script>
+                                </p>
+                            {% endif %}
+                        </div>
+					</div>
+                </div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+{% block script %}
+
+
+{#<script src="https://www.google.com/recaptcha/api.js?render=6Lc-eaYUAAAAABJLfkdj1irSh64MhC7D4nGOcWXP"></script>#}
+{#  <script>#}
+{#  grecaptcha.ready(function() {#}
+{#      grecaptcha.execute('reCAPTCHA_site_key', {action: 'homepage'}).then(function(token) {#}
+{#      });#}
+{#  });#}
+{#  </script>#}
+{% endblock %}

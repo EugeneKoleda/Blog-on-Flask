@@ -23,25 +23,25 @@
 						<form action="#" method="POST">
 							<div class="col-md-6">
 								<div class="input_1" style="margin-bottom:30px">
-									<input type="text" id="name" name="name" value="{{ request.args.get('name', '') }}">
+									<input type="text" id="name" name="name" value="{{ request.args.get('name', '') }}" required>
 									<span>your name</span>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="input_1" style="margin-bottom:30px">
-									<input type="text" id="email" name="email" value="{{ request.args.get('email', '') }}">
+									<input type="text" id="email" name="email" value="{{ request.args.get('email', '') }}" required>
 									<span>your email</span>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="input_1" style="margin-bottom:30px">
-									<input type="text" id="title" name="title" value="{{ request.args.get('title', '') }}">
+									<input type="text" id="title" name="title" value="{{ request.args.get('title', '') }}" required>
 									<span>title</span>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="textarea_1" style="margin-bottom:30px">
-									<textarea name="message" id="message" value="{{ request.args.get('message', '') }}" ></textarea>
+									<textarea name="message" id="message" value="{{ request.args.get('message', '') }}" required></textarea>
 									<span>message</span>
 								</div>
 							</div>

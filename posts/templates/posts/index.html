@@ -22,8 +22,10 @@
 
 			<li>
 				{% if not current_user.is_authenticated %}
-					<a class="animsition-link  text-muted" href="/login">Log In
-					</a>
+                    <ul class="first-level login clearfix">
+                    <li id="login"><a class="animsition-link  text-muted" href="/login">Log In</a></li>
+                    <li><a class="animsition-link  text-muted" href="/signin">|  Sign In</a></li>
+                    </ul>
 				{% endif %}
 				{% if  current_user.is_authenticated %}
 					<a class="animsition-link  text-muted" href="/logout">| Log Out</a>

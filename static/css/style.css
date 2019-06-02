@@ -794,6 +794,14 @@ input-radius-0{
 	border:solid 1px rgba(0,0,0,.1);
 	position: relative;
 }
+
+/*.input_1:invalid{*/
+/*	height: 50px;*/
+/*	width: 100%;*/
+/*	border:solid 1px rgba(0,0,0,.1);*/
+/*	position: relative;*/
+/*	box-shadow: 1px 1px 5px #b92b2bc9 inset;*/
+/*}*/
 .input_1 input[type="text"]{
 	height: 100%;
 	width: 100%;
@@ -807,6 +815,22 @@ input-radius-0{
 	font-size: 14px;
 	color:#9a9a9a;
 }
+
+.input_1 input[type="password"]{
+	height: 100%;
+	width: 100%;
+	border:0;
+	padding: 0 20px;
+	float: left;
+	position: relative;
+	background-color: transparent;
+	z-index: 2;
+	font-family: "Montserrat", sans-serif;
+	font-size: 24px;
+	color:#9a9a9a;
+
+}
+
 .input_1 > span{
 	position: absolute;
 	top:50%;
@@ -1280,6 +1304,10 @@ input-radius-0{
 }
 
 #user{
+	margin-right: 5px;
+}
+
+#login{
 	margin-right: 5px;
 }
 
