@@ -65,7 +65,23 @@ Sign In
                             {% if error_message %}
                                 <p>
                                     <script>
-                                        alert('This login or email already exist!');
+                                        alert('Something wrong, please try again!');
+                                    </script>
+                                </p>
+                            {% endif %}
+
+                             {% if error_login %}
+                                <p>
+                                    <script>
+                                        alert('This login is already exist!');
+                                    </script>
+                                </p>
+                            {% endif %}
+
+                             {% if error_email %}
+                                <p>
+                                    <script>
+                                        alert('This email is already exist!');
                                     </script>
                                 </p>
                             {% endif %}

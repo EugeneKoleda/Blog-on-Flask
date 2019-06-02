@@ -21,9 +21,16 @@ def index():
         login = request.form['login']
         password = request.form['password']
 
+    user_email = User.query.filter(User.email == email).first()
+    user_login = User.query.filter(User.login == login).first()
 
+    if user_email and user_email.email == email:
+        return render_template('registration/index.html', error_email="This email is already exist!")
 
-    if full_name and email and login and password:
+    elif user_login and user_login.login == login:
+        return render_template('registration/index.html', error_login="This login is already exist!")
+
+    elif full_name and email and login and password:
         try:
             user = user_datastore.create_user(full_name=full_name, email=email, login=login, password=password)
             role = Role.query.filter(Role.name == 'user').first()
@@ -32,7 +39,7 @@ def index():
             db.session.commit()
 
         except:
-            return render_template('registration/index.html', error_message="This login or email already exist!")
+            return render_template('registration/index.html', error_message="Something wrong, please try again!")
 
 
     return redirect(url_for('security.login'))
