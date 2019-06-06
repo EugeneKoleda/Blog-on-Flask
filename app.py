@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, url_for
 from flask_mail import Mail
+from flask_recaptcha import ReCaptcha
 
 from config import Configuration
 
@@ -24,6 +25,10 @@ manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
 mail = Mail(app)
+
+
+recaptcha = ReCaptcha()
+recaptcha.init_app(app)
 
 
 ###   ADMIN  ###

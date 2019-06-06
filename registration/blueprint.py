@@ -1,6 +1,6 @@
 from flask_security import url_for_security
 
-from app import app, db
+from app import app, db, recaptcha
 
 from flask import Blueprint, render_template, request, redirect, url_for
 
@@ -17,12 +17,14 @@ def index():
 
     if request.method == 'GET':
         return render_template('registration/index.html')
-    else:
+    elif request.method == 'POST' and recaptcha.verify():
         full_name = request.form['full_name']
         email = request.form['email']
         login = request.form['login']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
+    else:
+        return render_template('registration/index.html', captcha_error='Recaptcha error!')
 
     if confirm_password != password:
         return render_template('registration/index.html', error_password="Passwords are not the same!")

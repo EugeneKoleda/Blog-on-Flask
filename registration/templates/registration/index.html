@@ -123,7 +123,7 @@ Sign Up
                     <div class="signin-forms ">
                         <form action="{{ url_for('registration.index') }}" method="POST">
                             {% if error_message %}
-                                <div class="alert alert-danger" role="alert">
+                                <div class="alert-danger" role="alert">
                                     Something wrong, please try again!
                                 </div>
                             {% endif %}
@@ -182,6 +182,19 @@ Sign Up
                                     Passwords are not the same!
                                 </div>
                             {% endif %}
+                            <div class="col-md-8">
+{#                                <div class="g-recaptcha" data-sitekey="6LcvjqcUAAAAANrzXAh1m7GxNzfT7nYDE-z6lJL7"></div>#}
+                                {{ recaptcha }}
+                            </div>
+
+                            {% if captcha_error %}
+                                <div class="col-md-8">
+                                    <div class="alert-danger" role="alert">
+                                        Recaptcha error
+                                    </div>
+                                </div>
+                            {% endif %}
+
                             <div class="col-md-8">
                                 <label for="name email title message"><button type="submit" class="btn">Sign Up</button></label>
                             </div>

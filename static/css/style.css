@@ -1277,9 +1277,9 @@ input-radius-0{
 
 .search-btn{
 	height: 38px;
-	min-width: 41px;
+	min-width: 45px;
 	padding-top: 1px;
-	margin-left: -1px;
+	margin-left: -4px;
 	line-height: 0px;
 	vertical-align: 0px;
 }

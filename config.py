@@ -18,9 +18,17 @@ class Configuration():
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
     ADMINS = ['jecich209@gmail.com']
+
     SECURITY_POST_LOGIN_VIEW = '/blog'
     SECURITY_POST_LOGOUT_VIEW = '/blog'
 
+    RECAPTCHA_ENABLED = True
+    RECAPTCHA_SITE_KEY = "6LcvjqcUAAAAANrzXAh1m7GxNzfT7nYDE-z6lJL7"
+    RECAPTCHA_SECRET_KEY = "6LcvjqcUAAAAAPEaRX4M3yBvhv1sEfALoWCLg4_N"
+    RECAPTCHA_THEME = "light"
+    RECAPTCHA_TYPE = "image"
+    RECAPTCHA_SIZE = "normal"
+    RECAPTCHA_RTABINDEX = 10
 
 
 

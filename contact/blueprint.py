@@ -1,4 +1,4 @@
-from app import app, db
+from app import app, db, recaptcha
 
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
@@ -18,14 +18,15 @@ mail.init_app(app)
 @contact.route('/', methods=['GET', 'POST'])
 def index():
 
-
     if request.method == 'GET':
         return render_template('contact/index.html')
-    else:
+    elif request.method == 'POST' and recaptcha.verify():
         name = request.form['name']
         email = request.form['email']
         title = request.form['title']
         text = request.form['message']
+    else:
+        return render_template('contact/index.html', captcha_error='Recaptcha error!')
 
     if name and email and title and text:
         try:

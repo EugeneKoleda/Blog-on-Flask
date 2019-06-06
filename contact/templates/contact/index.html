@@ -20,7 +20,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="row">
-						<form action="#" method="POST">
+						<form action="{{ url_for('contact.index') }}" method="POST">
 							<div class="col-md-6">
 								<div class="input_1" style="margin-bottom:30px">
 									<input type="text" id="name" name="name" value="{{ request.args.get('name', '') }}" required>
@@ -45,9 +45,24 @@
 									<span>message</span>
 								</div>
 							</div>
-							<div class="col-md-12">
+
+                            <div class="col-md-12">
+{#                                <div class="g-recaptcha" data-sitekey="6LcvjqcUAAAAANrzXAh1m7GxNzfT7nYDE-z6lJL7"></div>#}
+                                {{ recaptcha }}
+                            </div>
+
+                            {% if captcha_error %}
+                                <div class="col-md-12">
+                                    <div class="alert-danger" role="alert">
+                                        Recaptcha error
+                                    </div>
+                                </div>
+                            {% endif %}
+
+
+                            <div class="col-md-12">
                                 <label for="name email title message"><button type="submit" class="btn green">Send</button></label>
-							</div>
+                            </div>
 						</form>
 					</div>
 
@@ -91,5 +106,8 @@
 	<script type="text/javascript" src="../Static/js/jquery.animsition.min.js"></script>
 	<script type="text/javascript" src="../Static/js/wow.min.js"></script>
 	<script type="text/javascript" src="../Static/js/main.js"></script>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
 
 {% endblock %}
