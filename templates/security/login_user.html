@@ -1,29 +1,215 @@
-{% extends 'base.html' %}
+{% extends 'base-login.html' %}
+{##}
 
-
-
-{% block content %}
-<div class="login-container">
-    <div class="offset-md-4 col-md-4 mt-5 pt-2">
-        {% from "security/_macros.html" import render_field_with_errors, render_field %}
-        {% include "security/_messages.html" %}
-        <h1 class="text-center pb-5">{{ _('Login') }}</h1>
-        <form action="{{ url_for_security('login') }}" method="POST" name="login_user_form">
-          {{ login_user_form.hidden_tag() }}
-            <span class="font-weight-bold">
-                {{ render_field_with_errors(login_user_form.email, class='form-control') }}
-            </span>
-            <span class="font-weight-bold">
-                {{ render_field_with_errors(login_user_form.password, class='form-control font-weight-bold') }}
-            </span>
-            <span class="font-weight-bold">
-          {{ render_field_with_errors(login_user_form.remember, class='font-weight-bold') }}
-            </span>
-
-          {{ render_field(login_user_form.next) }}
-          {{ render_field(login_user_form.submit, class='btn btn-dark offset-md-4 col-md-4 font-weight-bold') }}
-        </form>
-        {% include "security/_menu.html" %}
-    </div>
-</div>
+{% block title %}
+Log In
 {% endblock %}
+
+
+{% block forms %}
+    <div class="login-square">
+        <h1>Log In</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="login-forms ">
+                        {% from "security/_macros.html" import render_field_with_errors, render_field %}
+                        {% include "security/_messages.html" %}
+                        <form action="{{ url_for_security('login') }}" method="POST" name="login_user_form">
+                          {{ login_user_form.hidden_tag() }}
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="input_1 mb-15">
+                                        {{ render_field_with_errors(login_user_form.email, type='text') }}
+                                        <span>Your Email</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="input_1 mb-15">
+                                        {{ render_field_with_errors(login_user_form.password, type='password') }}
+                                        <span>Password</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="remember">
+                                        <label for="remember" class="mb-15">Remember me</label>
+                                        {{ render_field(login_user_form.remember, id='remember', class='btn-default') }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    {{ render_field(login_user_form.next) }}
+                                    {{ render_field(login_user_form.submit, class='btn') }}
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="forgot-pass">
+                                    <div class="text-muted">Forgot password <a href="#" class="text-primary">Username/Password?</a> </div>
+                                    <div class="text-muted">Create an account? <a href="/signup" class="text-primary">Sign Up</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% include "security/_menu.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{#    <section>#}
+{#		<div class="container">#}
+{#			<div class="row">#}
+{#				<div class="col-md-6">#}
+{#					<div class="row">#}
+{#						<form action="#" method="POST">#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6">#}
+{#                                    <div class="input_1" style="margin-bottom:30px">#}
+{#                                        <input type="text" id="name" name="name" value="{{ request.args.get('login', '') }}" required>#}
+{#                                        <span>Login</span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6">#}
+{#                                    <div class="input_1" style="margin-bottom:30px">#}
+{#                                        <input type="text" id="title" name="title" value="{{ request.args.get('title', '') }}" required>#}
+{#                                        <span>Password</span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#							<div class="col-md-12">#}
+{#                                <label for="name email title message"><button type="submit" class="btn green">Log In</button></label>#}
+{#							</div>#}
+{#						</form>#}
+{#					</div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+
+{% endblock %}
+
+{##}
+{#{% extends 'base-login.html' %}#}
+{##}
+{#{% block title %}#}
+{#Log In#}
+{#{% endblock %}#}
+{##}
+{#{% block forms %}#}
+{#    <h1 class="login-title">Log In</h1>#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-md-6">#}
+{#                <div class="login-forms ">#}
+{#                    <form action="/login" method="POST">#}
+{##}
+{#                        <div class="row">#}
+{#                            <div class="col-md-8 offset-md-3">#}
+{#                                <div class="input_1" style="margin-bottom:15px">#}
+{#                                    <input type="text" id="email" name="email" value="{{ request.args.get('email', '') }}">#}
+{#                                    <span>your email</span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="row">#}
+{#                            <div class="col-md-8 offset-md-3">#}
+{#                                <div class="input_1" style="margin-bottom:15px">#}
+{#                                    <input type="password" id="password" name="password" value="{{ request.args.get('password', '') }}" >#}
+{#                                    <span>password</span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="col-md-8 ">#}
+{#                            <label for="name email title message"><button type="submit" class="btn">Log In</button></label>#}
+{#                        </div>#}
+{#                    </form>#}
+{##}
+{#                    <div class="row">#}
+{#                        <div class="col-md-8">#}
+{#                            <div class="forgot-pass">#}
+{#                                <div class="text-muted">Forgot password <a href="#" class="text-primary">Username/Password?</a> </div>#}
+{#                                <div class="text-muted">Create an account? <a href="/signup" class="text-primary">Sign Up</a> </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div>#}
+{#                        {% if error_message %}#}
+{#                            <p>#}
+{#                                <script>#}
+{#                                    alert('Something wrong, please try again!');#}
+{#                                </script>#}
+{#                            </p>#}
+{#                        {% endif %}#}
+{##}
+{#                         {% if error_login %}#}
+{#                            <p>#}
+{#                                <script>#}
+{#                                    alert('This login is already exist!');#}
+{#                                </script>#}
+{#                            </p>#}
+{#                        {% endif %}#}
+{##}
+{#                         {% if error_email %}#}
+{#                            <p>#}
+{#                                <script>#}
+{#                                    alert('This email is already exist!');#}
+{#                                </script>#}
+{#                            </p>#}
+{#                        {% endif %}#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+
+
+{#<div class="login-container">#}
+{#    <div class="offset-md-4 col-md-4 mt-5 pt-2">#}
+{#        {% from "security/_macros.html" import render_field_with_errors, render_field %}#}
+{#        {% include "security/_messages.html" %}#}
+{#        <form action="{{ url_for_security('login') }}" method="POST" name="login_user_form">#}
+{#          {{ login_user_form.hidden_tag() }}#}
+{#            <div class="row">#}
+{#                <div class="col-md-8 offset-md-3">#}
+{#                    <div class="input_1" style="margin-bottom:15px">#}
+{#                        {{ render_field_with_errors(login_user_form.email, class='form-control') }}#}
+{#                        <span>your email</span>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#             <div class="row">#}
+{#                <div class="col-md-8 offset-md-3">#}
+{#                    <div class="input_1" style="margin-bottom:15px">#}
+{#                        {{ render_field_with_errors(login_user_form.password, class='form-control font-weight-bold') }}#}
+{#                    </div>#}
+{#                </div>#}
+{#             </div>#}
+{#             <div class="row">#}
+{#                <div class="col-md-8 offset-md-3">#}
+{#                    <div class="input_1" style="margin-bottom:15px">#}
+{#                        {{ render_field_with_errors(login_user_form.remember, class='font-weight-bold') }}#}
+{#                    </div>#}
+{#                </div>#}
+{#             </div>#}
+{#            {{ render_field(login_user_form.next) }}#}
+{#          {{ render_field(login_user_form.submit, class='btn btn-dark offset-md-4 col-md-4 font-weight-bold') }}#}
+{#        </form>#}
+{#        {% include "security/_menu.html" %}#}
+{#    </div>#}
+{#</div>#}

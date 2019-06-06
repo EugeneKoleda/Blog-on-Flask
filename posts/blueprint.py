@@ -17,10 +17,12 @@ def create_post():
     if request.method == 'POST':
         title = request.form['title']
         body = request.form['body']
+        main_image = request.files['main_image']
+
 
         if title and body:
             try:
-                post = Post(title=title, body=body)
+                post = Post(title=title, body=body, main_image=main_image)
                 db.session.add(post)
                 db.session.commit()
             except:

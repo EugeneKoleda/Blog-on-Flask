@@ -18,5 +18,9 @@ class Configuration():
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
     ADMINS = ['jecich209@gmail.com']
+    SECURITY_POST_LOGIN_VIEW = '/blog'
+    SECURITY_POST_LOGOUT_VIEW = '/blog'
+
+
 
 

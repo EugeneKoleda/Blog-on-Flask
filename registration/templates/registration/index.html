@@ -1,101 +1,101 @@
-{% extends 'base.html' %}
-
-{% block title %}
-Sign In
-{% endblock %}
-
-{% block content %}
-    	<section>
-        <h1 class="pb-5">Sign In</h1>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="row">
-						<form action="#" method="POST">
-                            <div class="row">
-                                <div class="col-md-6 offset-md-3">
-                                    <div class="input_1" style="margin-bottom:30px">
-                                        <input type="text" id="full_name" name="full_name" value="{{ request.args.get('full_name', '') }}">
-                                        <span>your full name</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 offset-md-3">
-                                    <div class="input_1" style="margin-bottom:30px">
-                                        <input type="text" id="email" name="email" value="{{ request.args.get('email', '') }}">
-                                        <span>your email</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 offset-md-3">
-                                    <div class="input_1" style="margin-bottom:30px">
-                                        <input type="text" id="login" name="login" value="{{ request.args.get('login', '') }}">
-                                        <span>login</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 offset-md-3">
-                                    <div class="input_1" style="margin-bottom:30px">
-                                        <input type="password" id="password" name="password" value="{{ request.args.get('password', '') }}" >
-                                        <span>password</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 offset-md-3">
-                                    <div class="input_1" style="margin-bottom:30px">
-                                        <input type="password" id="confirm_password" name="confirm_password" value="{{ request.args.get('confirm_password', '') }}" >
-                                        <span>confirm password</span>
-                                    </div>
-                                </div>
-                            </div>
-
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block title %}#}
+{#Sign In#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    	<section>#}
+{#        <h1 class="pb-5">Sign In</h1>#}
+{#		<div class="container">#}
+{#			<div class="row">#}
+{#				<div class="col-md-6">#}
+{#					<div class="row">#}
+{#						<form action="#" method="POST">#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6 offset-md-3">#}
+{#                                    <div class="input_1" style="margin-bottom:30px">#}
+{#                                        <input type="text" id="full_name" name="full_name" value="{{ request.args.get('full_name', '') }}">#}
+{#                                        <span>your full name</span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6 offset-md-3">#}
+{#                                    <div class="input_1" style="margin-bottom:30px">#}
+{#                                        <input type="text" id="email" name="email" value="{{ request.args.get('email', '') }}">#}
+{#                                        <span>your email</span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6 offset-md-3">#}
+{#                                    <div class="input_1" style="margin-bottom:30px">#}
+{#                                        <input type="text" id="login" name="login" value="{{ request.args.get('login', '') }}">#}
+{#                                        <span>login</span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6 offset-md-3">#}
+{#                                    <div class="input_1" style="margin-bottom:30px">#}
+{#                                        <input type="password" id="password" name="password" value="{{ request.args.get('password', '') }}" >#}
+{#                                        <span>password</span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6 offset-md-3">#}
+{#                                    <div class="input_1" style="margin-bottom:30px">#}
+{#                                        <input type="password" id="confirm_password" name="confirm_password" value="{{ request.args.get('confirm_password', '') }}" >#}
+{#                                        <span>confirm password</span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
 {#                            <div class="g-recaptcha" data-sitekey="your_site_key"></div>#}
 {#                            <br/>#}
 {#                            <input type="submit" value="Submit">#}
-
-                            <div class="col-md-12">
-                                <label for="name email title message"><button type="submit" class="btn green">Send</button></label>
-							</div>
-						</form>
-                        <div>
-                            {% if error_message %}
-                                <p>
-                                    <script>
-                                        alert('Something wrong, please try again!');
-                                    </script>
-                                </p>
-                            {% endif %}
-
-                             {% if error_login %}
-                                <p>
-                                    <script>
-                                        alert('This login is already exist!');
-                                    </script>
-                                </p>
-                            {% endif %}
-
-                             {% if error_email %}
-                                <p>
-                                    <script>
-                                        alert('This email is already exist!');
-                                    </script>
-                                </p>
-                            {% endif %}
-                        </div>
-					</div>
-                </div>
-			</div>
-		</div>
-	</section>
-{% endblock %}
-
-{% block script %}
-
-
+{##}
+{#                            <div class="col-md-12">#}
+{#                                <label for="name email title message"><button type="submit" class="btn green">Send</button></label>#}
+{#							</div>#}
+{#						</form>#}
+{#                        <div>#}
+{#                            {% if error_message %}#}
+{#                                <p>#}
+{#                                    <script>#}
+{#                                        alert('Something wrong, please try again!');#}
+{#                                    </script>#}
+{#                                </p>#}
+{#                            {% endif %}#}
+{##}
+{#                             {% if error_login %}#}
+{#                                <p>#}
+{#                                    <script>#}
+{#                                        alert('This login is already exist!');#}
+{#                                    </script>#}
+{#                                </p>#}
+{#                            {% endif %}#}
+{##}
+{#                             {% if error_email %}#}
+{#                                <p>#}
+{#                                    <script>#}
+{#                                        alert('This email is already exist!');#}
+{#                                    </script>#}
+{#                                </p>#}
+{#                            {% endif %}#}
+{#                        </div>#}
+{#					</div>#}
+{#                </div>#}
+{#			</div>#}
+{#		</div>#}
+{#	</section>#}
+{#{% endblock %}#}
+{##}
+{#{% block script %}#}
+{##}
+{##}
 {#<script src="https://www.google.com/recaptcha/api.js?render=6Lc-eaYUAAAAABJLfkdj1irSh64MhC7D4nGOcWXP"></script>#}
 {#  <script>#}
 {#  grecaptcha.ready(function() {#}
@@ -103,4 +103,105 @@ Sign In
 {#      });#}
 {#  });#}
 {#  </script>#}
+{#{% endblock %}#}
+
+
+
+{% extends 'base-login.html' %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+
+{% block forms %}
+    <div class="signup-square">
+        <h1>Sign Up</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="signin-forms ">
+                        <form action="{{ url_for('registration.index') }}" method="POST">
+                            {% if error_message %}
+                                <div class="alert alert-danger" role="alert">
+                                    Something wrong, please try again!
+                                </div>
+                            {% endif %}
+                            <div class="row">
+                                <div class="col-md-8 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:15px">
+                                        <input type="text" id="full_name" name="full_name" value="{{ request.args.get('full_name', '') }}">
+                                        <span>your full name</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:15px">
+                                        <input type="text" id="email" name="email" value="{{ request.args.get('email', '') }}">
+                                        <span>your email</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if error_email %}
+                                <div class="alert-danger" role="alert">
+                                    User with this email already exist!
+                                </div>
+                            {% endif %}
+                            <div class="row">
+                                <div class="col-md-8 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:15px">
+                                        <input type="text" id="login" name="login" value="{{ request.args.get('login', '') }}">
+                                        <span>login</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if error_login %}
+                                <div class="alert-danger" role="alert">
+                                    User with this login already exist!
+                                </div>
+                            {% endif %}
+                            <div class="row">
+                                <div class="col-md-8 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:15px">
+                                        <input type="password" id="password" name="password" value="{{ request.args.get('password', '') }}" >
+                                        <span>password</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 offset-md-3">
+                                    <div class="input_1" style="margin-bottom:30px">
+                                        <input type="password" id="confirm_password" name="confirm_password" value="{{ request.args.get('confirm_password', '') }}" >
+                                        <span>confirm password</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if error_password %}
+                                <div class="alert-danger" role="alert">
+                                    Passwords are not the same!
+                                </div>
+                            {% endif %}
+                            <div class="col-md-8">
+                                <label for="name email title message"><button type="submit" class="btn">Sign Up</button></label>
+                            </div>
+                            <div class="col-md-8">
+                                 <div class="privacy-policy">
+                                    By clicking the Sign Up button, you agree to our
+                                    <a href="#" class="text-info">Terms & Conditions</a>, and <a href="#" class="text-info">Privacy Policy</a>.
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="have-an-account">
+                                    <div class="text-muted">Already have an account? <a href="/login" class="text-primary">Log In</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

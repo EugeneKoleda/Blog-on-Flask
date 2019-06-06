@@ -1328,3 +1328,76 @@ input-radius-0{
 	margin-left: 950px;
 }
 
+/* Login/Sigin */
+
+.login-container{
+	background-color: #c6f5e5;
+}
+
+.login-square{
+	padding: 30px;
+	margin: 10% auto;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	/*height: 600px;*/
+	width: 450px;
+	text-align: center;
+}
+
+.signup-square{
+	padding: 30px;
+	margin: 5% auto;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	/*height: 600px;*/
+	width: 450px;
+	text-align: center;
+}
+
+.signin-forms{
+	margin-top: 40px;
+}
+
+.login-forms{
+	margin-top: 70px;
+	padding-top: -150px;
+}
+
+.forgot-pass{
+	margin-top: 50px;
+}
+
+.privacy-policy{
+	margin-top: 30px;
+	font-size: 12px;
+}
+
+.have-an-account{
+	margin-top: 30px;
+}
+
+.mb-15{
+	margin-bottom: 15px;
+}
+
+label[for='remember']{
+	color:#999999;
+	padding-top: 5px;
+}
+
+input[type='checkbox']{
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+div.remember{
+	display: inline;
+}
+
+.alert-danger{
+	font-weight: bold;
+	background-color: rgba(0, 0, 0, 0);
+	max-width: 450px;
+	text-align: left;
+	margin-bottom: 10px;
+}

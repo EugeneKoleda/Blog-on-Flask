@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <title>
+        {% block title %}
+        {% endblock %} |by EVSX
+    </title>
+    <!-- META TAGS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- STYLES -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flexslider.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animsition.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="login-container">
+    {% block forms %}
+    {% endblock %}
+
+<!-- SCRIPTS -->
+	<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../static/js/smoothScroll.js"></script>
+	<script type="text/javascript" src="../static/js/jquery.animsition.min.js"></script>
+	<script type="text/javascript" src="../static/js/wow.min.js"></script>
+	<script type="text/javascript" src="../static/js/main.js"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flexslider.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/smoothScroll.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.animsition.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+
+			// initialise flexslider
+			$('.site-hero').flexslider({
+				animation: "fade",
+				directionNav: false,
+				controlNav: false,
+				keyboardNav: true,
+				slideToStart: 0,
+				animationLoop: true,
+				pauseOnHover: false,
+				slideshowSpeed: 4000,
+			});
+
+
+			// initialize isotope
+			var $container = $('.portfolio_container');
+			$container.isotope({
+				filter: '*',
+			});
+
+			$('.portfolio_filter a').click(function(){
+				$('.portfolio_filter .active').removeClass('active');
+				$(this).addClass('active');
+
+				var selector = $(this).attr('data-filter');
+				$container.isotope({
+					filter: selector,
+					animationOptions: {
+						duration: 500,
+						animationEngine : "jquery"
+					}
+				});
+				return false;
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+		  function openLinks()
+		  {
+			window.open('/logout');
+			window.location.href = '/blog';
+		  }
+
+	</script>
+</body>
+</html>

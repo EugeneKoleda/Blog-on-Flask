@@ -1,3 +1,5 @@
+from flask_security import url_for_security
+
 from app import app, db
 
 from flask import Blueprint, render_template, request, redirect, url_for
@@ -20,6 +22,10 @@ def index():
         email = request.form['email']
         login = request.form['login']
         password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+    if confirm_password != password:
+        return render_template('registration/index.html', error_password="Passwords are not the same!")
 
     user_email = User.query.filter(User.email == email).first()
     user_login = User.query.filter(User.login == login).first()
@@ -42,7 +48,9 @@ def index():
             return render_template('registration/index.html', error_message="Something wrong, please try again!")
 
 
-    return redirect(url_for('security.login'))
+    return redirect(url_for_security('login'))
+
+
 
 
 

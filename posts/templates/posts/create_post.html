@@ -5,9 +5,18 @@
 {% endblock %}
 
 
+{% block hero %}
+        <div class="site-hero_2">
+		<div class="page-title">
+			<div class="big-title montserrat-text uppercase">Create new post</div>
+		</div>
+	</div>
+{% endblock %}
+
+
 {% block content %}
     <h1>New post</h1>
-
+<div class="row">
     <div class="col-md-6">
         <form action="{{ url_for('posts.create_post') }}" method="POST">
             {% for field in form %}
@@ -18,5 +27,30 @@
             {% endfor %}
         <button type="submit" class="btn btn-dark">Create</button>
         </form>
+
+{#            <div class="row">#}
+{#                <form action="#" method="POST">#}
+{#                    <div class="col-md-6">#}
+{#                        <div class="input_1" style="margin-bottom:30px">#}
+{#                            <input type="text" id="name" name="title" value="{{ request.args.get('title', '') }}" required>#}
+{#                            <span>Title</span>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-md-6">#}
+{#                        <div class="input_1" style="margin-bottom:30px">#}
+{#                            <input type="file" id="email" name="title" value="{{ request.args.get('main_image', '') }}" required>#}
+{#                            <span>Image</span>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="textarea_1" style="margin-bottom:30px">#}
+{#                            <textarea name="body" id="message" value="{{ request.args.get('body', '') }}" required></textarea>#}
+{#                            <span>Body</span>#}
+{#                        </div>#}
+{#                    <div class="col-md-12">#}
+{#                        <label for="name email title message"><button type="submit" class="btn green">Send</button></label>#}
+{#                    </div>#}
+{#                </form>#}
+{#            </div>#}
     </div>
+</div>
 {% endblock %}
